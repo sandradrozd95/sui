@@ -13,7 +13,7 @@ async fn pending_exec_storage_notify() {
     use telemetry_subscribers::init_for_testing;
     init_for_testing();
 
-    let setup = checkpoint_tests_setup(20, Duration::from_millis(200)).await;
+    let setup = checkpoint_tests_setup(20, Duration::from_millis(200), true).await;
 
     let TestSetup {
         committee: _committee,
@@ -88,10 +88,10 @@ async fn pending_exec_storage_notify() {
 
 #[tokio::test(flavor = "current_thread", start_paused = true)]
 async fn pending_exec_full() {
-    use telemetry_subscribers::init_for_testing;
-    init_for_testing();
+    // use telemetry_subscribers::init_for_testing;
+    // init_for_testing();
 
-    let setup = checkpoint_tests_setup(20, Duration::from_millis(200)).await;
+    let setup = checkpoint_tests_setup(20, Duration::from_millis(200), true).await;
 
     let TestSetup {
         committee: _committee,
