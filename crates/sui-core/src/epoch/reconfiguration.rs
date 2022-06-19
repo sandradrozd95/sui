@@ -34,11 +34,11 @@ where
                 Self::is_second_last_checkpoint_epoch(next_cp),
                 "start_epoch_change called at the wrong checkpoint",
             );
-            assert_eq!(
-                checkpoints.lowest_unprocessed_checkpoint(),
-                next_cp,
-                "start_epoch_change called when there are still unprocessed transactions",
-            );
+            //assert_eq!(
+            //    checkpoints.lowest_unprocessed_checkpoint(),
+            //    next_cp,
+            //    "start_epoch_change called when there are still unprocessed transactions",
+            //);
             // drop checkpoints lock
         } else {
             unreachable!();
@@ -66,11 +66,11 @@ where
                 Self::is_last_checkpoint_epoch(next_cp),
                 "finish_epoch_change called at the wrong checkpoint",
             );
-            assert_eq!(
-                checkpoints.lowest_unprocessed_checkpoint(),
-                next_cp,
-                "finish_epoch_change called when there are still unprocessed transactions",
-            );
+            //assert_eq!(
+            //    checkpoints.lowest_unprocessed_checkpoint(),
+            //    next_cp,
+            //    "finish_epoch_change called when there are still unprocessed transactions",
+            //);
             if checkpoints.extra_transactions.iter().next().is_some() {
                 // TODO: Revert any tx that's executed but not in the checkpoint.
             }
